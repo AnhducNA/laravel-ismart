@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/product/cat/list', 'App\Http\Controllers\ProductController@listCat');

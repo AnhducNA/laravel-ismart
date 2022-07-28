@@ -5,20 +5,20 @@
     <title>ISMART STORE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{asset('public/css/bootstrap/bootstrap-theme.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('public/css/bootstrap/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('public/reset.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('public/css/carousel/owl.carousel.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('public/css/carousel/owl.theme.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('public/css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('public/style.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('public/responsive.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/bootstrap/bootstrap-theme.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/bootstrap/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/reset.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/carousel/owl.carousel.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/carousel/owl.theme.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/style.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/responsive.css')}}" rel="stylesheet" type="text/css" />
 
-    <script src="{{asset('public/js/jquery-2.2.4.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('public/js/elevatezoom-master/jquery.elevatezoom.js')}}" type="text/javascript"></script>
-    <script src="{{asset('public/js/bootstrap/bootstrap.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('public/js/carousel/owl.carousel.js')}}" type="text/javascript"></script>
-    <script src="{{asset('public/js/main.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/js/jquery-2.2.4.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/js/elevatezoom-master/jquery.elevatezoom.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/js/bootstrap/bootstrap.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/js/carousel/owl.carousel.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/js/main.js')}}" type="text/javascript"></script>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
                 </div>
                 <div id="head-body" class="clearfix">
                     <div class="wp-inner">
-                        <a href="{{url('/')}}" title="" id="logo" class="fl-left"><img src="{{asset('public/images/logo.png')}}" /></a>
+                        <a href="{{url('/')}}" title="" id="logo" class="fl-left"><img src="{{asset('assets/images/logo.png')}}" /></a>
                         <div id="search-wp" class="fl-left">
                             <form method="POST" action="">
                                 <input type="text" name="s" id="s" placeholder="Nhập từ khóa tìm kiếm tại đây!">
@@ -78,7 +78,7 @@
                                     <ul class="list-cart">
                                         <li class="clearfix">
                                             <a href="" title="" class="thumb fl-left">
-                                                <img src="public/images/img-pro-11.png" alt="">
+                                                <img src="assets/images/img-pro-11.png" alt="">
                                             </a>
                                             <div class="info fl-right">
                                                 <a href="" title="" class="product-name">Sony Express X6</a>
@@ -88,7 +88,7 @@
                                         </li>
                                         <li class="clearfix">
                                             <a href="" title="" class="thumb fl-left">
-                                                <img src="public/images/img-pro-23.png" alt="">
+                                                <img src="assets/images/img-pro-23.png" alt="">
                                             </a>
                                             <div class="info fl-right">
                                                 <a href="" title="" class="product-name">Laptop Lenovo 10</a>
@@ -122,7 +122,7 @@
                             <p class="desc">ISMART luôn cung cấp luôn là sản phẩm chính hãng có thông tin rõ ràng, chính sách ưu đãi cực lớn cho khách hàng có thẻ thành viên.</p>
                             <div id="payment">
                                 <div class="thumb">
-                                    <img src="public/images/img-foot.png" alt="">
+                                    <img src="assets/images/img-foot.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -223,7 +223,7 @@
                 </ul>
             </div>
         </div>
-        <div id="btn-top"><img src="public/images/icon-to-top.png" alt="" /></div>
+        <div id="btn-top"><img src="assets/images/icon-to-top.png" alt="" /></div>
         <div id="fb-root"></div>
         <script>
             (function(d, s, id) {

@@ -7,13 +7,13 @@
             <div class="section" id="slider-wp">
                 <div class="section-detail">
                     <div class="item">
-                        <img src="public/images/slider-01.png" alt="">
+                        <img src="{{asset('assets/images/slider-01.png')}}" alt="">
                     </div>
                     <div class="item">
-                        <img src="public/images/slider-02.png" alt="">
+                        <img src="{{asset('assets/images/slider-02.png')}}" alt="">
                     </div>
                     <div class="item">
-                        <img src="public/images/slider-03.png" alt="">
+                        <img src="{{asset('assets/images/slider-03.png')}}" alt="">
                     </div>
                 </div>
             </div>
@@ -22,35 +22,35 @@
                     <ul class="list-item clearfix">
                         <li>
                             <div class="thumb">
-                                <img src="public/images/icon-1.png">
+                                <img src="assets/images/icon-1.png">
                             </div>
                             <h3 class="title">Miễn phí vận chuyển</h3>
                             <p class="desc">Tới tận tay khách hàng</p>
                         </li>
                         <li>
                             <div class="thumb">
-                                <img src="public/images/icon-2.png">
+                                <img src="assets/images/icon-2.png">
                             </div>
                             <h3 class="title">Tư vấn 24/7</h3>
                             <p class="desc">1900.9999</p>
                         </li>
                         <li>
                             <div class="thumb">
-                                <img src="public/images/icon-3.png">
+                                <img src="assets/images/icon-3.png">
                             </div>
                             <h3 class="title">Tiết kiệm hơn</h3>
                             <p class="desc">Với nhiều ưu đãi cực lớn</p>
                         </li>
                         <li>
                             <div class="thumb">
-                                <img src="public/images/icon-4.png">
+                                <img src="assets/images/icon-4.png">
                             </div>
                             <h3 class="title">Thanh toán nhanh</h3>
                             <p class="desc">Hỗ trợ nhiều hình thức</p>
                         </li>
                         <li>
                             <div class="thumb">
-                                <img src="public/images/icon-5.png">
+                                <img src="assets/images/icon-5.png">
                             </div>
                             <h3 class="title">Đặt hàng online</h3>
                             <p class="desc">Thao tác đơn giản</p>
@@ -66,7 +66,7 @@
                     <ul class="list-item">
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-05.png">
+                                <img src="assets/images/img-pro-05.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Laptop Lenovo IdeaPad 120S</a>
                             <div class="price">
@@ -80,7 +80,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-08.png">
+                                <img src="assets/images/img-pro-08.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Samsung Galaxy S8 Plus</a>
                             <div class="price">
@@ -94,7 +94,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-07.png">
+                                <img src="assets/images/img-pro-07.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Laptop Acer Aspire ES1</a>
                             <div class="price">
@@ -108,7 +108,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-10.png">
+                                <img src="assets/images/img-pro-10.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Sony Xperia XZ Premium</a>
                             <div class="price">
@@ -122,7 +122,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-06.png">
+                                <img src="assets/images/img-pro-06.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Laptop Asus E402NA</a>
                             <div class="price">
@@ -136,7 +136,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-09.png">
+                                <img src="assets/images/img-pro-09.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">IPhone 7 128GB</a>
                             <div class="price">
@@ -159,7 +159,7 @@
                     <ul class="list-item clearfix">
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-16.png">
+                                <img src="assets/images/img-pro-16.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Motorola Moto G5S Plus</a>
                             <div class="price">
@@ -173,7 +173,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-15.png">
+                                <img src="assets/images/img-pro-15.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Samsung Galaxy A5</a>
                             <div class="price">
@@ -187,7 +187,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-14.png">
+                                <img src="assets/images/img-pro-14.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Sony Xperia XA Ultra</a>
                             <div class="price">
@@ -201,7 +201,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-13.png">
+                                <img src="assets/images/img-pro-13.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Huawei Nova 2i</a>
                             <div class="price">
@@ -215,7 +215,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-12.png">
+                                <img src="assets/images/img-pro-12.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Xiaomi Mi A1</a>
                             <div class="price">
@@ -229,7 +229,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-11.png">
+                                <img src="assets/images/img-pro-11.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">HTC U Ultra Sapphire</a>
                             <div class="price">
@@ -243,7 +243,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-08.png">
+                                <img src="assets/images/img-pro-08.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Sony Xperia XZ Dual</a>
                             <div class="price">
@@ -257,7 +257,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="public/images/img-pro-10.png">
+                                <img src="assets/images/img-pro-10.png">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Bphone 2017</a>
                             <div class="price">
@@ -280,7 +280,7 @@
                     <ul class="list-item clearfix">
                         <li>
                             <a href="" title="" class="thumb">
-                                <img src="public/images/img-pro-17.png">
+                                <img src="assets/images/img-pro-17.png">
                             </a>
                             <a href="" title="" class="product-name">Laptop Asus X441NA</a>
                             <div class="price">
@@ -294,7 +294,7 @@
                         </li>
                         <li>
                             <a href="" title="" class="thumb">
-                                <img src="public/images/img-pro-18.png">
+                                <img src="assets/images/img-pro-18.png">
                             </a>
                             <a href="" title="" class="product-name">Laptop Lenovo IdeaPad 110</a>
                             <div class="price">
@@ -308,7 +308,7 @@
                         </li>
                         <li>
                             <a href="" title="" class="thumb">
-                                <img src="public/images/img-pro-19.png">
+                                <img src="assets/images/img-pro-19.png">
                             </a>
                             <a href="" title="" class="product-name">Laptop Acer ES1 533</a>
                             <div class="price">
@@ -322,7 +322,7 @@
                         </li>
                         <li>
                             <a href="" title="" class="thumb">
-                                <img src="public/images/img-pro-20.png">
+                                <img src="assets/images/img-pro-20.png">
                             </a>
                             <a href="" title="" class="product-name">Laptop Lenovo IdeaPad 110</a>
                             <div class="price">
@@ -336,7 +336,7 @@
                         </li>
                         <li>
                             <a href="" title="" class="thumb">
-                                <img src="public/images/img-pro-21.png">
+                                <img src="assets/images/img-pro-21.png">
                             </a>
                             <a href="" title="" class="product-name">Laptop Asus X441NA</a>
                             <div class="price">
@@ -350,7 +350,7 @@
                         </li>
                         <li>
                             <a href="" title="" class="thumb">
-                                <img src="public/images/img-pro-22.png">
+                                <img src="assets/images/img-pro-22.png">
                             </a>
                             <a href="" title="" class="product-name">Laptop Acer Aspire ES1</a>
                             <div class="price">
@@ -364,7 +364,7 @@
                         </li>
                         <li>
                             <a href="" title="" class="thumb">
-                                <img src="public/images/img-pro-05.png">
+                                <img src="assets/images/img-pro-05.png">
                             </a>
                             <a href="" title="" class="product-name">Laptop Lenovo IdeaPad 120S</a>
                             <div class="price">
@@ -378,7 +378,7 @@
                         </li>
                         <li>
                             <a href="" title="" class="thumb">
-                                <img src="public/images/img-pro-23.png">
+                                <img src="assets/images/img-pro-23.png">
                             </a>
                             <a href="" title="" class="product-name">Laptop Asus A540UP I5</a>
                             <div class="price">
@@ -458,7 +458,7 @@
                     <ul class="list-item">
                         <li class="clearfix">
                             <a href="?page=detail_product" title="" class="thumb fl-left">
-                                <img src="public/images/img-pro-13.png" alt="">
+                                <img src="assets/images/img-pro-13.png" alt="">
                             </a>
                             <div class="info fl-right">
                                 <a href="?page=detail_product" title="" class="product-name">Laptop Asus A540UP I5</a>
@@ -471,7 +471,7 @@
                         </li>
                         <li class="clearfix">
                             <a href="?page=detail_product" title="" class="thumb fl-left">
-                                <img src="public/images/img-pro-11.png" alt="">
+                                <img src="assets/images/img-pro-11.png" alt="">
                             </a>
                             <div class="info fl-right">
                                 <a href="?page=detail_product" title="" class="product-name">Iphone X Plus</a>
@@ -484,7 +484,7 @@
                         </li>
                         <li class="clearfix">
                             <a href="?page=detail_product" title="" class="thumb fl-left">
-                                <img src="public/images/img-pro-12.png" alt="">
+                                <img src="assets/images/img-pro-12.png" alt="">
                             </a>
                             <div class="info fl-right">
                                 <a href="?page=detail_product" title="" class="product-name">Iphone X Plus</a>
@@ -497,7 +497,7 @@
                         </li>
                         <li class="clearfix">
                             <a href="?page=detail_product" title="" class="thumb fl-left">
-                                <img src="public/images/img-pro-05.png" alt="">
+                                <img src="assets/images/img-pro-05.png" alt="">
                             </a>
                             <div class="info fl-right">
                                 <a href="?page=detail_product" title="" class="product-name">Iphone X Plus</a>
@@ -510,7 +510,7 @@
                         </li>
                         <li class="clearfix">
                             <a href="?page=detail_product" title="" class="thumb fl-left">
-                                <img src="public/images/img-pro-22.png" alt="">
+                                <img src="assets/images/img-pro-22.png" alt="">
                             </a>
                             <div class="info fl-right">
                                 <a href="?page=detail_product" title="" class="product-name">Iphone X Plus</a>
@@ -523,7 +523,7 @@
                         </li>
                         <li class="clearfix">
                             <a href="?page=detail_product" title="" class="thumb fl-left">
-                                <img src="public/images/img-pro-23.png" alt="">
+                                <img src="assets/images/img-pro-23.png" alt="">
                             </a>
                             <div class="info fl-right">
                                 <a href="?page=detail_product" title="" class="product-name">Iphone X Plus</a>
@@ -536,7 +536,7 @@
                         </li>
                         <li class="clearfix">
                             <a href="?page=detail_product" title="" class="thumb fl-left">
-                                <img src="public/images/img-pro-18.png" alt="">
+                                <img src="assets/images/img-pro-18.png" alt="">
                             </a>
                             <div class="info fl-right">
                                 <a href="?page=detail_product" title="" class="product-name">Iphone X Plus</a>
@@ -549,7 +549,7 @@
                         </li>
                         <li class="clearfix">
                             <a href="?page=detail_product" title="" class="thumb fl-left">
-                                <img src="public/images/img-pro-15.png" alt="">
+                                <img src="assets/images/img-pro-15.png" alt="">
                             </a>
                             <div class="info fl-right">
                                 <a href="?page=detail_product" title="" class="product-name">Iphone X Plus</a>
@@ -566,7 +566,7 @@
             <div class="section" id="banner-wp">
                 <div class="section-detail">
                     <a href="" title="" class="thumb">
-                        <img src="public/images/banner.png" alt="">
+                        <img src="assets/images/banner.png" alt="">
                     </a>
                 </div>
             </div>
