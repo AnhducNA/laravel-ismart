@@ -80,7 +80,7 @@
                         </li>
                         <li>
                             <a href="?page=detail_product" title="" class="thumb">
-                                <img src="assets/images/img-pro-08.png">
+                                <img src="{{asset('assets/images/products/Galaxy-S22-Ultra-White-200x200.jpg')}}">
                             </a>
                             <a href="?page=detail_product" title="" class="product-name">Samsung Galaxy S8 Plus</a>
                             <div class="price">

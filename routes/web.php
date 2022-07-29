@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,10 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/product/cat/list', 'App\Http\Controllers\ProductController@listCat');
+Route::get('/product/detail/show/{id}', 'App\Http\Controllers\ProductController@showDetail');
+
+Route::get('/check', function () {
+    $listProducts = DB::table('products')->get();
+    echo "<pre>";
+    print_r($listProducts);
+});
