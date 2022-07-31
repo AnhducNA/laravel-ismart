@@ -22,4 +22,5 @@ Route::get('/product/detail/show/{id}', 'App\Http\Controllers\ProductController@
 Route::get('/checkProduct', 'App\Http\Controllers\ProductController@check');
 
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@addCart');
+Route::get('/cart/delete/{id}', 'App\Http\Controllers\CartController@deleteItemCart');
 Route::get('/checkCart','App\Http\Controllers\CartController@check');

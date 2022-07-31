@@ -21,7 +21,22 @@ class CartController extends Controller
             $newCart->addCart($product, $id);
             $request->session()->put('Cart', $newCart);
         }
-        // dd($newCart);
+        return view('cart.cart', compact('newCart'));
+    }
+    function deleteItemCart(Request $request, $id)
+    {
+        $product = DB::table('products')->where('id', $id)->first();
+        if (isset($product)) {
+            $oldCart = session('Cart') ? session('Cart') : null;
+            $newCart = new Cart($oldCart);
+            $newCart->deleteItemCart($id);
+            if (count($newCart->products) != 0) {
+                $request->session()->put('Cart', $newCart);
+            } else {
+                $newCart->totalPrice == 0;
+                $newCart->totalQuanty == 0;
+            }
+        }
         return view('cart.cart', compact('newCart'));
     }
 }

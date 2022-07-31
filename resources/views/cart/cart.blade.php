@@ -3,7 +3,7 @@
 <!-- #change-item-cart -->
 <ul class="list-cart">
     @foreach(session('Cart')->products as $item)
-    <li class="clearfix">
+    <li class="clearfix d-flex">
         <a href="" title="" class="thumb fl-left">
             <img src="<?php echo asset('assets/images/products') . '/' . $item['productInfo']->thumb ?>" alt="">
         </a>
@@ -12,6 +12,9 @@
             <p class="price">{{number_format($item['productInfo']->new_price)}} vnd</p>
             <p class="qty">Số lượng: <span>{{$item['quanty']}}</span></p>
         </div>
+        <a id="delete-item-cart" data-idCart="{{$item['productInfo']->id}}" class="py-3" href="">
+            <i class="fa fa-times"></i>
+        </a>
     </li>
     @endforeach
 
