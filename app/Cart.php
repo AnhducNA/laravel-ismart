@@ -12,13 +12,25 @@ class Cart
 
     function __construct($cart)
     {
-        $this->products = $cart->products;
-        $this->totalQuanty = $cart->totalQuanty;
-        $this->totaoPrice = $cart->totalPrice;
+        if (isset($cart)) {
+            $this->products = $cart->products;
+            $this->totalQuanty = $cart->totalQuanty;
+            $this->totalPrice = $cart->totalPrice;
+        }
     }
 
     public function addCart($product, $id)
     {
-        $newProduct = ['quanty' => 0, 'price'=>$this->products ];
+        $newProduct = ['quanty' => 0, 'price' => $product->new_price, 'productInfo' => $product];
+        if ($this->products) {
+            if (array_key_exists($id, $this->products)) {
+                $newProduct = $this->products[$id];
+            }
+        }
+        $newProduct['quanty']++;
+        $newProduct['price'] = $newProduct['quanty'] * $product->new_price;
+        $this->products[$id] = $newProduct;
+        $this->totalPrice += $product->new_price;
+        $this->totalQuanty++;
     }
 }

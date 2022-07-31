@@ -14,11 +14,7 @@
     <link href="{{asset('assets/style.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/responsive.css')}}" rel="stylesheet" type="text/css" />
 
-    <script src="{{asset('assets/js/jquery-2.2.4.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/elevatezoom-master/jquery.elevatezoom.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/bootstrap/bootstrap.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/carousel/owl.carousel.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/js/main.js')}}" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -71,40 +67,43 @@
                             <div id="cart-wp" class="fl-right">
                                 <div id="btn-cart">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <span id="num">2</span>
+                                    <div id="num" class="totalQuanty-show">
+                                        {{session('Cart')?session('Cart')->totalQuanty:0}}
+                                    </div>
                                 </div>
                                 <div id="dropdown">
-                                    <p class="desc">Có <span>2 sản phẩm</span> trong giỏ hàng</p>
-                                    <ul class="list-cart">
-                                        <li class="clearfix">
-                                            <a href="" title="" class="thumb fl-left">
-                                                <img src="assets/images/img-pro-11.png" alt="">
-                                            </a>
-                                            <div class="info fl-right">
-                                                <a href="" title="" class="product-name">Sony Express X6</a>
-                                                <p class="price">6.250.000đ</p>
-                                                <p class="qty">Số lượng: <span>1</span></p>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <a href="" title="" class="thumb fl-left">
-                                                <img src="assets/images/img-pro-23.png" alt="">
-                                            </a>
-                                            <div class="info fl-right">
-                                                <a href="" title="" class="product-name">Laptop Lenovo 10</a>
-                                                <p class="price">16.250.000đ</p>
-                                                <p class="qty">Số lượng: <span>1</span></p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="total-price clearfix">
-                                        <p class="title fl-left">Tổng:</p>
-                                        <p class="price fl-right">18.500.000đ</p>
+                                    <p class="desc">Có <span class="totalQuanty-show">{{session('Cart')?session('Cart')->totalQuanty:0}}</span> sản phẩm trong giỏ hàng</p>
+                                    <div id="change-item-cart">
+                                        @if(!empty(session('Cart')))
+
+                                        <!-- #change-item-cart -->
+                                        <ul class="list-cart">
+                                            @foreach(session('Cart')->products as $item)
+                                            <li class="clearfix">
+                                                <a href="" title="" class="thumb fl-left">
+                                                    <img src="<?php echo asset('assets/images/products') . '/' . $item['productInfo']->thumb ?>" alt="">
+                                                </a>
+                                                <div class="info fl-right">
+                                                    <a href="" title="" class="product-name">{{$item['productInfo']->name}}</a>
+                                                    <p class="price">{{number_format($item['productInfo']->new_price)}} vnd</p>
+                                                    <p class="qty">Số lượng: <span>{{$item['quanty']}}</span></p>
+                                                </div>
+                                            </li>
+                                            @endforeach
+
+                                        </ul>
+                                        <div class="total-price clearfix">
+                                            <p class="title fl-left">Tổng:</p>
+                                            <p class="price fl-right">{{number_format(session('Cart')->totalPrice)}} vnd</p>
+                                        </div>
+                                        <div class="action-cart clearfix">
+                                            <a href="{{url('/cart')}}" title="Giỏ hàng" class="view-cart fl-left">Giỏ hàng</a>
+                                            <a href="{{url('/checkout')}}" title="Thanh toán" class="checkout fl-right">Thanh toán</a>
+                                        </div>
+                                        @endif
+
                                     </div>
-                                    <dic class="action-cart clearfix">
-                                        <a href="{{url('/cart')}}" title="Giỏ hàng" class="view-cart fl-left">Giỏ hàng</a>
-                                        <a href="{{url('/checkout')}}" title="Thanh toán" class="checkout fl-right">Thanh toán</a>
-                                    </dic>
+
                                 </div>
                             </div>
                         </div>
@@ -122,7 +121,7 @@
                             <p class="desc">ISMART luôn cung cấp luôn là sản phẩm chính hãng có thông tin rõ ràng, chính sách ưu đãi cực lớn cho khách hàng có thẻ thành viên.</p>
                             <div id="payment">
                                 <div class="thumb">
-                                    <img src="assets/images/img-foot.png" alt="">
+                                    <img src="{{asset('assets/images/img-foot.png')}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -223,8 +222,14 @@
                 </ul>
             </div>
         </div>
-        <div id="btn-top"><img src="assets/images/icon-to-top.png" alt="" /></div>
+        <div id="btn-top"><img src="{{asset('assets/images/icon-to-top.png')}}" alt="" /></div>
         <div id="fb-root"></div>
+
+        <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/js/elevatezoom-master/jquery.elevatezoom.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/js/bootstrap/bootstrap.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/js/carousel/owl.carousel.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/js/main.js')}}" type="text/javascript"></script>
         <script>
             (function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -236,6 +241,7 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
+        @yield('include-javascript')
 </body>
 
 </html>

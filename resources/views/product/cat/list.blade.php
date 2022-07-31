@@ -49,7 +49,7 @@
                                 <span class="old">{{number_format($product->new_price)}} vnd</span>
                             </div>
                             <div class="action clearfix">
-                                <a href="?page=cart" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
+                                <a href="javascript:" onclick="addCart(<?php echo $product->id ?>);" title="Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
                                 <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
                             </div>
                         </li>
@@ -228,4 +228,23 @@
         </div>
     </div>
 </div>
+@endsection
+@section('include-javascript')
+<!-- jquery -->
+<script>
+    function addCart($id) {
+        $.ajax({
+            url: '../../cart/add/' + $id,
+            type: 'GET',
+        }).done(function($respone) {
+            $('#change-item-cart').empty();
+            $('#change-item-cart').html($respone);
+            $('.totalQuanty-show').text(function() {
+                return $('#totalQuanty').val();
+            })
+
+        });
+        // console.log($id);
+    }
+</script>
 @endsection
