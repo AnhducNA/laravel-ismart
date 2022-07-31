@@ -256,6 +256,7 @@
             $('.totalQuanty-show').text(function() {
                 return $('#totalQuanty').val();
             })
+            console.log($('#totalQuanty').val());
         });
     });
 </script>

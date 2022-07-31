@@ -38,5 +38,9 @@ class Cart
         $this->totalPrice -= ($this->products[$id]['price']);
         $this->totalQuanty -= $this->products[$id]['quanty'];
         unset($this->products[$id]);
+        if (count($this->products) == 0) {
+            $this->totalPrice = 0;
+            $this->totalQuanty = 0;
+        }
     }
 }

@@ -74,8 +74,7 @@
                                 <div id="dropdown">
                                     <p class="desc">Có <span class="totalQuanty-show">{{session('Cart')?session('Cart')->totalQuanty:0}}</span> sản phẩm trong giỏ hàng</p>
                                     <div id="change-item-cart">
-                                        @if(!empty(session('Cart')))
-
+                                        @if(!empty(session('Cart')->products))
                                         <!-- #change-item-cart -->
                                         <ul class="list-cart">
                                             @foreach(session('Cart')->products as $item)
@@ -91,7 +90,6 @@
                                                 <a id="delete-item-cart" data-idCart="{{$item['productInfo']->id}}" class="py-3" href="javascript:">
                                                     <i class="fa fa-times"></i>
                                                 </a>
-
                                             </li>
                                             @endforeach
 
@@ -99,11 +97,12 @@
                                         <div class="total-price clearfix">
                                             <p class="title fl-left">Tổng:</p>
                                             <p class="price fl-right">{{number_format(session('Cart')->totalPrice)}} vnd</p>
+                                            <input id="totalQuanty" hidden type="text" value="{{session('Cart')->totalQuanty}}">
                                         </div>
-                                        <div class="action-cart clearfix">
-                                            <a href="{{url('/cart')}}" title="Giỏ hàng" class="view-cart fl-left">Giỏ hàng</a>
+                                        <dic class="action-cart clearfix">
+                                            <a href="{{route('viewListCart')}}" title="Giỏ hàng" class="view-cart fl-left">Giỏ hàng</a>
                                             <a href="{{url('/checkout')}}" title="Thanh toán" class="checkout fl-right">Thanh toán</a>
-                                        </div>
+                                        </dic>
                                         @endif
 
                                     </div>

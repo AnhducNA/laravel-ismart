@@ -10,7 +10,7 @@
                         <a href="?page=home" title="">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="" title="">Sản phẩm làm đẹp da</a>
+                        <a href="" title="">Giỏ hàng</a>
                     </li>
                 </ul>
             </div>
@@ -19,6 +19,7 @@
     <div id="wrapper" class="wp-inner clearfix">
         <div class="section" id="info-cart-wp">
             <div class="section-detail table-responsive">
+                @if(!empty(session('Cart')->products))
                 <table class="table">
                     <thead>
                         <tr>
@@ -27,54 +28,40 @@
                             <td>Tên sản phẩm</td>
                             <td>Giá sản phẩm</td>
                             <td>Số lượng</td>
-                            <td colspan="2">Thành tiền</td>
+                            <td>Thành tiền</td>
+                            <td>Xóa</td>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach(session('Cart')->products as $item)
                         <tr>
-                            <td>HCA00031</td>
+                            <td>{{$item['productInfo']->id}}</td>
                             <td>
                                 <a href="" title="" class="thumb">
-                                    <img src="public/images/img-pro-11.png" alt="">
+                                    <img src="<?php echo asset('assets/images/products') . '/' . $item['productInfo']->thumb ?>" alt="">
                                 </a>
                             </td>
                             <td>
-                                <a href="" title="" class="name-product">Sony Express X6</a>
+                                <a href="" title="" class="name-product">{{$item['productInfo']->name}}</a>
                             </td>
-                            <td>500.000đ</td>
+                            <td>{{number_format($item['productInfo']->new_price)}} vnd</td>
                             <td>
-                                <input type="text" name="num-order" value="1" class="num-order">
+                                <input type="number" name="num-order" value="{{$item['quanty']}}" class="num-order">
                             </td>
-                            <td>500.000đ</td>
+                            <td>{{number_format($item['price'])}} vnd</td>
                             <td>
-                                <a href="" title="" class="del-product"><i class="fa fa-trash-o"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>HCA00032</td>
-                            <td>
-                                <a href="" title="" class="thumb">
-                                    <img src="public/images/img-pro-23.png" alt="">
+                                <a href="javascript:" title="" class="del-product">
+                                    <i class="fa fa-trash-o"></i>
                                 </a>
                             </td>
-                            <td>
-                                <a href="" title="" class="name-product">Laptop Probook HP 4430s</a>
-                            </td>
-                            <td>350.000đ</td>
-                            <td>
-                                <input type="text" name="num-order" value="1" class="num-order">
-                            </td>
-                            <td>350.000đ</td>
-                            <td>
-                                <a href="" title="" class="del-product"><i class="fa fa-trash-o"></i></a>
-                            </td>
                         </tr>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="7">
                                 <div class="clearfix">
-                                    <p id="total-price" class="fl-right">Tổng giá: <span>850.000đ</span></p>
+                                    <p id="total-price" class="fl-right">Tổng giá: <span>{{number_format(session('Cart')->totalPrice)}} vnd</span></p>
                                 </div>
                             </td>
                         </tr>
@@ -90,6 +77,7 @@
                         </tr>
                     </tfoot>
                 </table>
+                @endif
             </div>
         </div>
         <div class="section" id="action-cart-wp">

@@ -10,8 +10,12 @@ class CartController extends Controller
 {
     function check()
     {
-        session()->remove('Cart');
+        // session()->remove('Cart');
+        if (!empty(session('Cart'))) {
+            dd(session('Cart'));
+        }
     }
+
     function addCart(Request $request, $id)
     {
         $product = DB::table('products')->where('id', $id)->first();
@@ -25,18 +29,15 @@ class CartController extends Controller
     }
     function deleteItemCart(Request $request, $id)
     {
-        $product = DB::table('products')->where('id', $id)->first();
-        if (isset($product)) {
-            $oldCart = session('Cart') ? session('Cart') : null;
-            $newCart = new Cart($oldCart);
-            $newCart->deleteItemCart($id);
-            if (count($newCart->products) != 0) {
-                $request->session()->put('Cart', $newCart);
-            } else {
-                $newCart->totalPrice == 0;
-                $newCart->totalQuanty == 0;
-            }
-        }
+        $oldCart = session('Cart') ? session('Cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->deleteItemCart($id);
+        $request->session()->put('Cart', $newCart);
         return view('cart.cart', compact('newCart'));
+    }
+    function viewListCart()
+    {
+        // $listCart = session('Cart');
+        return view('cart.list');
     }
 }
