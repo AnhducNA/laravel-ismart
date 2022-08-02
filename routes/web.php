@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'App\Http\Controllers\ProductController@viewIndex');
 Route::get('/product/cat/list', 'App\Http\Controllers\ProductController@listCat');
 Route::get('/product/detail/show/{id}', 'App\Http\Controllers\ProductController@showDetail');
 Route::get('/checkProduct', 'App\Http\Controllers\ProductController@check');
