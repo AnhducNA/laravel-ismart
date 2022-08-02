@@ -31,3 +31,6 @@ Route::get('/listCart/changeQtyItem/{id}/{quanty}', 'App\Http\Controllers\CartCo
 Route::post('/listCart/changeQtyAll', 'App\Http\Controllers\CartController@changeQtyAllListCart');
 Route::get('/listCart/deleteAll', 'App\Http\Controllers\CartController@deleteAllListCart');
 Route::get('/checkCart', 'App\Http\Controllers\CartController@check');
+
+Route::get('/checkout', 'App\Http\Controllers\CheckoutController@view')
+    ->name('viewCheckout');
