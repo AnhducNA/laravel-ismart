@@ -75,7 +75,7 @@
                                     <div class="clearfix">
                                         <div class="fl-right">
                                             <a href="javascript: " onclick="changeAllListCart()" title="" id="update-cart">Cập nhật giỏ hàng</a>
-                                            <a href="?page=checkout" title="" id="checkout-cart">Thanh toán</a>
+                                            <a href="{{route('viewCheckout')}}" title="" id="checkout-cart">Thanh toán</a>
                                         </div>
                                     </div>
                                 </td>
@@ -87,7 +87,7 @@
             <div class="section" id="action-cart-wp">
                 <div class="section-detail">
                     <p class="title">Click vào <span>“Cập nhật giỏ hàng”</span> để cập nhật số lượng. Nhập vào số lượng <span>0</span> để xóa sản phẩm khỏi giỏ hàng. Nhấn vào thanh toán để hoàn tất mua hàng.</p>
-                    <a href="?page=home" title="" id="buy-more">Mua tiếp</a><br />
+                    <a href="{{route('viewListProduct')}}" title="" id="buy-more">Mua tiếp</a><br />
                     <a href="javascript: " onclick="deleteAllListCart()" title="" id="delete-cart">Xóa giỏ hàng</a>
                 </div>
             </div>
@@ -108,6 +108,7 @@
             $('.totalQuanty-show').text(function() {
                 return $('#totalQuanty').val();
             })
+            alertify.success('Đã xoá sản phẩm');
             // console.log($('#totalQuanty').val());
         });
     }
@@ -132,7 +133,7 @@
             }
         }).done(function() {
             location.reload();
-
+            alertify.success('Đã cập nhật tất cả sản phẩm');
         });
     }
 
@@ -141,6 +142,7 @@
             url: '../listCart/deleteAll',
             type: 'GET',
         }).done(function() {
+            alertify.success('Đã xóa tất cả sản phẩm');
             location.reload();
         });
     }

@@ -7,44 +7,95 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    function check(){
-        $listProductCats = DB::table('product_cats')->get();
-        $listProducts = DB::table('products')->get();
-        $newListProducts = $listProducts;
-        if (!empty($listProductCats)) {
-            foreach ($listProductCats as $productCat) {
-                foreach ($listProducts as $product) {
-                    if ($productCat->id == $product->product_cats_id) {
-                        $productCat->name;
-                    }
-                }
-                // echo "<pre>" . "<br>";
-                // print_r($productCat);
-                // echo '----------';
-                // print_r($newListProducts);
+    function check()
+    {
+        $listProductCats = null;
+        // convert object to array
+        foreach (DB::table('product_cats')->get()->toArray() as $number => $productCatObject) {
+            foreach ($productCatObject as $key => $value) {
+                $listProductCats[$number][$key] = $value;
             }
         }
+
+        $listProducts = DB::table('products')->get();
+        $listProductsByID = null;
+
+        foreach ($listProducts as $product) {
+            $listProductsByID[$product->id] = $product;
+        }
+
+        foreach ($listProductCats as $stt => $productCat) {
+            foreach ($listProductsByID as $key => $product) {
+                if ($productCat['id'] == $product->product_cats_id) {
+                    $productCat['products'][$product->id] = $product;
+                }
+            }
+            $listProductCats[$stt] = $productCat;
+        }
+
         echo "<pre>" . "<br>";
-        print_r($listProducts);
-        echo '----------' . '<br>';
-        print_r($newListProducts);
+        print_r($listProductCats);
+        echo "<pre>" . "<br>";
+        // print_r($listProductsByID);
+
+    }
+    function viewIndex()
+    {
+        $listProductCats = null;
+        // convert object to array
+        foreach (DB::table('product_cats')->get()->toArray() as $number => $productCatObject) {
+            foreach ($productCatObject as $key => $value) {
+                $listProductCats[$number][$key] = $value;
+            }
+        }
+
+        $listProducts = DB::table('products')->get();
+        $listProductsByID = null;
+
+        foreach ($listProducts as $product) {
+            $listProductsByID[$product->id] = $product;
+        }
+
+        foreach ($listProductCats as $stt => $productCat) {
+            foreach ($listProductsByID as $key => $product) {
+                if ($productCat['id'] == $product->product_cats_id) {
+                    $productCat['products'][$product->id] = $product;
+                }
+            }
+            $listProductCats[$stt] = $productCat;
+        }
+        return view('index', compact('listProductCats', 'listProductsByID'));
     }
     function listCat()
     {
-        $listProductCats = DB::table('product_cats')->get();
-        $listProducts = DB::table('products')->get();
+        $listProductCatsAll = null;
+        // convert object to array
+        foreach (DB::table('product_cats')->get()->toArray() as $number => $productCatObject) {
+            foreach ($productCatObject as $key => $value) {
+                $listProductCatsAll[$number][$key] = $value;
+            }
+        }
 
-        // if (!empty($listProductCats)) {
-        //     foreach ($listProductCats as $item) {
-        //         if ($item->id == $listProducts->id) {
-        //             echo $item->id;
-        //         }
-        //     }
-        // }
+        $listProducts = DB::table('products')->get();
+        $listProductsByID = null;
+
+        foreach ($listProducts as $product) {
+            $listProductsByID[$product->id] = $product;
+        }
+
+        foreach ($listProductCatsAll as $stt => $productCat) {
+            foreach ($listProductsByID as $key => $product) {
+                if ($productCat['id'] == $product->product_cats_id) {
+                    $productCat['products'][$product->id] = $product;
+                }
+            }
+            $listProductCatsAll[$stt] = $productCat;
+        }
+
         $listSmartphones = DB::table('products')->get()->where('product_cats_id', 1);
         $listTablet = DB::table('products')->get()->where('product_cats_id', 2);
         $listLaptop = DB::table('products')->get()->where('product_cats_id', 3);
-        return view('product.cat.list', compact('listProductCats', 'listProducts'));
+        return view('product.cat.list', compact('listProductCatsAll', 'listProductsByID'));
     }
     function showDetail($id)
     {

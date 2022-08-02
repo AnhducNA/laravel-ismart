@@ -37,8 +37,8 @@
                 </div>
                 <div class="section-detail">
                     <ul class="list-item clearfix">
-                        @if(!empty($listProducts))
-                        @foreach($listProducts as $product)
+                        @if(!empty($listProductsByID))
+                        @foreach($listProductsByID as $product)
                         <li>
                             <a href="{{url('/product/detail/show/1')}}" title="" class="thumb">
                                 <img src="<?php echo asset('assets/images/products') . '/' . $product->thumb ?>">

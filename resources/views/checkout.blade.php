@@ -65,19 +65,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach(session('Cart')->products as $item)
                         <tr class="cart-item">
-                            <td class="product-name">Son môi nữ cá tính<strong class="product-quantity">x 1</strong></td>
-                            <td class="product-total">350.000đ</td>
+                            <td class="product-name">{{$item['productInfo']->name}}
+                                <strong class="product-quantity">x {{$item['quanty']}}</strong>
+                            </td>
+                            <td class="product-total">{{number_format($item['price'])}} vnd</td>
                         </tr>
-                        <tr class="cart-item">
-                            <td class="product-name">Đồ tẩy trang nhập khẩu Mỹ<strong class="product-quantity">x 2</strong></td>
-                            <td class="product-total">500.000đ</td>
-                        </tr>
+                        @endforeach
+
                     </tbody>
                     <tfoot>
                         <tr class="order-total">
                             <td>Tổng đơn hàng:</td>
-                            <td><strong class="total-price">800.000đ</strong></td>
+                            <td><strong class="total-price">{{number_format(session('Cart')->totalPrice)}} vnd</strong></td>
                         </tr>
                     </tfoot>
                 </table>

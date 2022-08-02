@@ -14,7 +14,11 @@
     <link href="{{asset('assets/style.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/responsive.css')}}" rel="stylesheet" type="text/css" />
 
+    <!-- include the style -->
+    <link rel="stylesheet" href="{{asset('assets/alertifyjs/css/alertify.min.css')}}">
 
+    <!-- include a theme -->
+    <link rel="stylesheet" href="{{asset('assets/alertifyjs/css/themes/default.min.css')}}">
 </head>
 
 <body>
@@ -227,7 +231,8 @@
         </div>
         <div id="btn-top"><img src="{{asset('assets/images/icon-to-top.png')}}" alt="" /></div>
         <div id="fb-root"></div>
-
+        <!-- include the script -->
+        <script src="{{asset('assets/alertifyjs/alertify.min.js')}}"></script>
         <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/js/elevatezoom-master/jquery.elevatezoom.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/js/bootstrap/bootstrap.min.js')}}" type="text/javascript"></script>
@@ -247,30 +252,59 @@
         <!-- jquery -->
         <script>
             function addCart($id) {
-                $.ajax({
-                    url: '../../cart/add/' + $id,
-                    type: 'GET',
-                }).done(function($respone) {
-                    $('#change-item-cart').empty();
-                    $('#change-item-cart').html($respone);
-                    $('.totalQuanty-show').text(function() {
-                        return $('#totalQuanty').val();
-                    })
-                });
-                // console.log($id);
+                if (window.location.href.includes('product')) {
+                    $.ajax({
+                        url: '../../cart/add/' + $id,
+                        type: 'GET',
+                    }).done(function($respone) {
+                        $('#change-item-cart').empty();
+                        $('#change-item-cart').html($respone);
+                        $('.totalQuanty-show').text(function() {
+                            return $('#totalQuanty').val();
+                        })
+                        alertify.success('Đã thêm sản phẩm');
+                    });
+                } else {
+                    $.ajax({
+                        url: ' cart/add/' + $id,
+                        type: 'GET',
+                    }).done(function($respone) {
+                        $('#change-item-cart').empty();
+                        $('#change-item-cart').html($respone);
+                        $('.totalQuanty-show').text(function() {
+                            return $('#totalQuanty').val();
+                        })
+                        alertify.success('Đã thêm sản phẩm');
+                    });
+                }
+
             }
             $('#change-item-cart').on('click', '#delete-item-cart', function() {
-                $.ajax({
-                    url: '../../cart/delete/' + $(this).attr('data-idCart'),
-                    type: 'GET',
-                }).done(function($respone) {
-                    $('#change-item-cart').empty();
-                    $('#change-item-cart').html($respone);
-                    $('.totalQuanty-show').text(function() {
-                        return $('#totalQuanty').val();
-                    })
-                    // console.log($('#totalQuanty').val());
-                });
+                if (window.location.href.includes('product')) {
+                    $.ajax({
+                        url: '../../cart/delete/' + $(this).attr('data-idCart'),
+                        type: 'GET',
+                    }).done(function($respone) {
+                        $('#change-item-cart').empty();
+                        $('#change-item-cart').html($respone);
+                        $('.totalQuanty-show').text(function() {
+                            return $('#totalQuanty').val();
+                        })
+                        alertify.success('Đã xóa sản phẩm');
+                    });
+                } else {
+                    $.ajax({
+                        url: 'cart/delete/' + $(this).attr('data-idCart'),
+                        type: 'GET',
+                    }).done(function($respone) {
+                        $('#change-item-cart').empty();
+                        $('#change-item-cart').html($respone);
+                        $('.totalQuanty-show').text(function() {
+                            return $('#totalQuanty').val();
+                        })
+                        alertify.success('Đã xóa sản phẩm');
+                    });
+                }
             });
         </script>
         @yield('include-javascript')
