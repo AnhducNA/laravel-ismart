@@ -17,13 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/product/cat/list', 'App\Http\Controllers\ProductController@listCat');
+Route::get('/product/cat/list', 'App\Http\Controllers\ProductController@listCat')->name('viewListProduct');
 Route::get('/product/detail/show/{id}', 'App\Http\Controllers\ProductController@showDetail');
 Route::get('/checkProduct', 'App\Http\Controllers\ProductController@check');
 
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@addCart');
 Route::get('/cart/delete/{id}', 'App\Http\Controllers\CartController@deleteItemCart');
-
 Route::get('/listCart/view', 'App\Http\Controllers\CartController@viewListCart')
     ->name('viewListCart');
 Route::get('/listCart/deleteItem/{id}', 'App\Http\Controllers\CartController@deleteItemListCart');
@@ -31,3 +30,6 @@ Route::get('/listCart/changeQtyItem/{id}/{quanty}', 'App\Http\Controllers\CartCo
 Route::post('/listCart/changeQtyAll', 'App\Http\Controllers\CartController@changeQtyAllListCart');
 Route::get('/listCart/deleteAll', 'App\Http\Controllers\CartController@deleteAllListCart');
 Route::get('/checkCart', 'App\Http\Controllers\CartController@check');
+
+Route::get('/checkout', 'App\Http\Controllers\CheckoutController@view')
+    ->name('viewCheckout');

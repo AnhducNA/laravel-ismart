@@ -14,7 +14,11 @@
     <link href="{{asset('assets/style.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/responsive.css')}}" rel="stylesheet" type="text/css" />
 
+    <!-- include the style -->
+    <link rel="stylesheet" href="{{asset('assets/alertifyjs/css/alertify.min.css')}}">
 
+    <!-- include a theme -->
+    <link rel="stylesheet" href="{{asset('assets/alertifyjs/css/themes/default.min.css')}}">
 </head>
 
 <body>
@@ -227,7 +231,8 @@
         </div>
         <div id="btn-top"><img src="{{asset('assets/images/icon-to-top.png')}}" alt="" /></div>
         <div id="fb-root"></div>
-
+        <!-- include the script -->
+        <script src="{{asset('assets/alertifyjs/alertify.min.js')}}"></script>
         <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/js/elevatezoom-master/jquery.elevatezoom.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/js/bootstrap/bootstrap.min.js')}}" type="text/javascript"></script>
@@ -256,6 +261,7 @@
                     $('.totalQuanty-show').text(function() {
                         return $('#totalQuanty').val();
                     })
+                    alertify.success('Đã thêm sản phẩm');
                 });
                 // console.log($id);
             }
@@ -269,6 +275,7 @@
                     $('.totalQuanty-show').text(function() {
                         return $('#totalQuanty').val();
                     })
+                    alertify.success('Đã xóa sản phẩm');
                     // console.log($('#totalQuanty').val());
                 });
             });
