@@ -40,4 +40,32 @@ class CartController extends Controller
         // $listCart = session('Cart');
         return view('cart.list');
     }
+    function deleteItemListCart(Request $request, $id)
+    {
+        $oldCart = session('Cart') ? session('Cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->deleteItemCart($id);
+        $request->session()->put('Cart', $newCart);
+        return view('cart.list-cart', compact('newCart'));
+    }
+
+    function changeQtyAllListCart(Request $request)
+    {
+        foreach ($request->data as $item) {
+            $oldCart = session('Cart') ? session('Cart') : null;
+            $newCart = new Cart($oldCart);
+            $newCart->changeQtyItemListCart($item['key'], $item['value']);
+            $request->session()->put('Cart', $newCart);
+        };
+        // echo 'ok';
+        return view('cart.list-cart');
+    }
+    function deleteAllListCart(Request $request)
+    {
+        $oldCart = session('Cart') ? session('Cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->deleteAllListCart();
+        $request->session()->put('Cart', $newCart);
+        return view('cart.list');
+    }
 }

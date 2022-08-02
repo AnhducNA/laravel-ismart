@@ -35,12 +35,39 @@ class Cart
     }
     public function deleteItemCart($id)
     {
-        $this->totalPrice -= ($this->products[$id]['price']);
-        $this->totalQuanty -= $this->products[$id]['quanty'];
-        unset($this->products[$id]);
+        if (!empty($this->products[$id])) {
+            $this->totalPrice -= ($this->products[$id]['price']);
+            $this->totalQuanty -= $this->products[$id]['quanty'];
+            unset($this->products[$id]);
+        } else {
+            echo "Not exit product !";
+        }
         if (count($this->products) == 0) {
             $this->totalPrice = 0;
             $this->totalQuanty = 0;
         }
+    }
+    public function changeQtyItemListCart($id, $quanty)
+    {
+        if ($quanty > $this->products[$id]['quanty']) {
+            $this->totalQuanty += abs($quanty - $this->products[$id]['quanty']);
+            $this->totalPrice += abs(($quanty * $this->products[$id]['productInfo']->new_price) - $this->products[$id]['price']);
+            $this->products[$id]['quanty'] = $quanty;
+            $this->products[$id]['price'] = $quanty * $this->products[$id]['productInfo']->new_price;
+        } else if ($quanty < $this->products[$id]['quanty']) {
+            $this->totalQuanty -= abs($quanty - $this->products[$id]['quanty']);
+            $this->totalPrice -= abs(($quanty * $this->products[$id]['productInfo']->new_price) - $this->products[$id]['price']);
+            $this->products[$id]['quanty'] = $quanty;
+            $this->products[$id]['price'] = $quanty * $this->products[$id]['productInfo']->new_price;
+        } else {
+            $this->products[$id]['quanty'] = $quanty;
+            $this->products[$id]['price'] = $quanty * $this->products[$id]['productInfo']->new_price;
+        }
+    }
+    public function deleteAllListCart()
+    {
+        $this->totalPrice = 0;
+        $this->totalQuanty = 0;
+        $this->products = null;
     }
 }

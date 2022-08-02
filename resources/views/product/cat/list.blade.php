@@ -230,34 +230,5 @@
 </div>
 @endsection
 @section('include-javascript')
-<!-- jquery -->
-<script>
-    function addCart($id) {
-        $.ajax({
-            url: '../../cart/add/' + $id,
-            type: 'GET',
-        }).done(function($respone) {
-            $('#change-item-cart').empty();
-            $('#change-item-cart').html($respone);
-            $('.totalQuanty-show').text(function() {
-                return $('#totalQuanty').val();
-            })
 
-        });
-        // console.log($id);
-    }
-    $('#change-item-cart').on('click', '#delete-item-cart', function() {
-        $.ajax({
-            url: '../../cart/delete/' + $(this).attr('data-idCart'),
-            type: 'GET',
-        }).done(function($respone) {
-            $('#change-item-cart').empty();
-            $('#change-item-cart').html($respone);
-            $('.totalQuanty-show').text(function() {
-                return $('#totalQuanty').val();
-            })
-            console.log($('#totalQuanty').val());
-        });
-    });
-</script>
 @endsection
