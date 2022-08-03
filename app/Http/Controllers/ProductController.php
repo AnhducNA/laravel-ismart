@@ -62,7 +62,7 @@ class ProductController extends Controller
                     $productCat['products'][$product->id] = $product;
                 }
             }
-            $listProductCats[$stt] = $productCat;
+            $listProductCats[$stt] = $productCat; 
         }
         return view('index', compact('listProductCats', 'listProductsByID'));
     }

@@ -152,33 +152,39 @@
                 </div>
             </div>
             @if(!empty($listProductCats))
-            @foreach($listProductCats as $productCat)
+
             <div class="section" id="list-product-wp">
-                <div class="section-head">
-                    <h3 class="section-title">{{$productCat['name']}}</h3>
+                @foreach($listProductCats as $productCat)
+
+                <div class="item-product">
+                    <div class="section-head">
+                        <h3 class="section-title">{{$productCat['name']}}</h3>
+                    </div>
+                    <div class="section-detail">
+                        <ul class="list-item clearfix">
+                            @foreach($productCat['products'] as $product)
+                            <li>
+                                <a href="?page=detail_product" title="" class="thumb">
+                                    <img src="<?php echo asset('assets/images/products' . '/' . $product->thumb) ?>">
+                                </a>
+                                <a href="?page=detail_product" title="" class="product-name">{{$product->name}}</a>
+                                <div class="price">
+                                    <span class="new">{{number_format($product->new_price)}} vnd</span>
+                                    <span class="old">{{number_format($product->old_price)}} vnd</span>
+                                </div>
+                                <div class="action clearfix">
+                                    <a href="javascript: " onclick="addCart(<?php echo $product->id ?>);" title=" Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
+                                    <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
-                <div class="section-detail">
-                    <ul class="list-item clearfix">
-                        @foreach($productCat['products'] as $product)
-                        <li>
-                            <a href="?page=detail_product" title="" class="thumb">
-                                <img src="<?php echo asset('assets/images/products' . '/' . $product->thumb) ?>">
-                            </a>
-                            <a href="?page=detail_product" title="" class="product-name">{{$product->name}}</a>
-                            <div class="price">
-                                <span class="new">{{number_format($product->new_price)}} vnd</span>
-                                <span class="old">{{number_format($product->old_price)}} vnd</span>
-                            </div>
-                            <div class="action clearfix">
-                                <a href="javascript: " onclick="addCart(<?php echo $product->id ?>);" title=" Thêm giỏ hàng" class="add-cart fl-left">Thêm giỏ hàng</a>
-                                <a href="?page=checkout" title="Mua ngay" class="buy-now fl-right">Mua ngay</a>
-                            </div>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
+                {{$productCat->onEachSide(1)->links()}}
+                @endforeach
             </div>
-            @endforeach
+
 
             @endif
         </div>
