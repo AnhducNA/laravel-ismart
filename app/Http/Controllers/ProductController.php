@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+
     function check()
     {
         $listProductCats = null;
@@ -32,13 +36,12 @@ class ProductController extends Controller
             }
             $listProductCats[$stt] = $productCat;
         }
-
         echo "<pre>" . "<br>";
-        print_r($listProductCats);
+        // print_r($listProductCats);
         echo "<pre>" . "<br>";
-        // print_r($listProductsByID);
-
+        print_r($listProductsByID);
     }
+
     function viewIndex()
     {
         $listProductCats = null;
@@ -62,8 +65,9 @@ class ProductController extends Controller
                     $productCat['products'][$product->id] = $product;
                 }
             }
-            $listProductCats[$stt] = $productCat; 
+            $listProductCats[$stt] = $productCat;
         }
+
         return view('index', compact('listProductCats', 'listProductsByID'));
     }
     function listCat()
@@ -92,13 +96,11 @@ class ProductController extends Controller
             $listProductCatsAll[$stt] = $productCat;
         }
 
-        $listSmartphones = DB::table('products')->get()->where('product_cats_id', 1);
-        $listTablet = DB::table('products')->get()->where('product_cats_id', 2);
-        $listLaptop = DB::table('products')->get()->where('product_cats_id', 3);
         return view('product.cat.list', compact('listProductCatsAll', 'listProductsByID'));
     }
     function showDetail($id)
     {
-        return view('product.detail.show');
+        $product = DB::table('products')->where('id', $id)->first();
+        return view('product.detail.show', compact('product'));
     }
 }

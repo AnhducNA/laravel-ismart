@@ -155,7 +155,6 @@
 
             <div class="section" id="list-product-wp">
                 @foreach($listProductCats as $productCat)
-
                 <div class="item-product">
                     <div class="section-head">
                         <h3 class="section-title">{{$productCat['name']}}</h3>
@@ -164,10 +163,10 @@
                         <ul class="list-item clearfix">
                             @foreach($productCat['products'] as $product)
                             <li>
-                                <a href="?page=detail_product" title="" class="thumb">
+                                <a href="{{route('viewDetailProduct', $product->id)}}" title="" class="thumb">
                                     <img src="<?php echo asset('assets/images/products' . '/' . $product->thumb) ?>">
                                 </a>
-                                <a href="?page=detail_product" title="" class="product-name">{{$product->name}}</a>
+                                <a href="{{route('viewDetailProduct', $product->id)}}" title="" class="product-name">{{$product->name}}</a>
                                 <div class="price">
                                     <span class="new">{{number_format($product->new_price)}} vnd</span>
                                     <span class="old">{{number_format($product->old_price)}} vnd</span>
@@ -181,7 +180,7 @@
                         </ul>
                     </div>
                 </div>
-                {{$productCat->onEachSide(1)->links()}}
+
                 @endforeach
             </div>
 
@@ -360,7 +359,7 @@
             <div class="section" id="banner-wp">
                 <div class="section-detail">
                     <a href="" title="" class="thumb">
-                        <img src="assets/images/banner.png" alt="">
+                        <img src="{{asset('assets/images/banner.png')}}" alt="">
                     </a>
                 </div>
             </div>

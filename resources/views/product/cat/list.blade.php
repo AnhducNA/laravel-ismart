@@ -10,7 +10,7 @@
                         <a href="" title="">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="" title="">Điện thoại</a>
+                        <a href="" title="">Sản phẩm</a>
                     </li>
                 </ul>
             </div>
@@ -40,10 +40,10 @@
                         @if(!empty($listProductsByID))
                         @foreach($listProductsByID as $product)
                         <li>
-                            <a href="{{url('/product/detail/show/1')}}" title="" class="thumb">
+                            <a href="{{route('viewDetailProduct', $product->id)}}" title="" class="thumb">
                                 <img src="<?php echo asset('assets/images/products') . '/' . $product->thumb ?>">
                             </a>
-                            <a href="?page=detail_product" title="" class="product-name">{{$product->name}}</a>
+                            <a href="{{route('viewDetailProduct', $product->id)}}" title="" class="product-name">{{$product->name}}</a>
                             <div class="price">
                                 <span class="new">{{number_format($product->old_price)}} vnd</span>
                                 <span class="old">{{number_format($product->new_price)}} vnd</span>
